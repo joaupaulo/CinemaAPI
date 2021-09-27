@@ -21,5 +21,6 @@ namespace CinemaAPI.Contexto
         public DbSet<Ingressos> Ingressos { get; set; }
         public DbSet<Programacao> Programacao { get; set; }
         public DbSet<Sala> Sala { get; set; }
+        public DbSet<CinemaAPI.Models.Cinema> Cinema { get; set; }
     }
 }

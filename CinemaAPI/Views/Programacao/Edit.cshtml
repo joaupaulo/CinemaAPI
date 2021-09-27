@@ -1,0 +1,49 @@
+﻿@model CinemaAPI.Models.Programacao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Programacao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProgramacaoId" />
+            <div class="form-group">
+                <label asp-for="DataLancamento" class="control-label"></label>
+                <input asp-for="DataLancamento" class="form-control" />
+                <span asp-validation-for="DataLancamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilmeHoje" class="control-label"></label>
+                <input asp-for="FilmeHoje" class="form-control" />
+                <span asp-validation-for="FilmeHoje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilmeSemana" class="control-label"></label>
+                <input asp-for="FilmeSemana" class="form-control" />
+                <span asp-validation-for="FilmeSemana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CinemaId" class="control-label"></label>
+                <select asp-for="CinemaId" class="form-control" asp-items="ViewBag.CinemaId"></select>
+                <span asp-validation-for="CinemaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
