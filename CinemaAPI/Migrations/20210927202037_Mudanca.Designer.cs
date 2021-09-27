@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaAPI.Migrations
 {
     [DbContext(typeof(CinemaContexto))]
-    [Migration("20210927193045_Att")]
-    partial class Att
+    [Migration("20210927202037_Mudanca")]
+    partial class Mudanca
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Bar", b =>
                 {
-                    b.Property<int>("CardapioId")
+                    b.Property<int>("BarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -46,7 +46,7 @@ namespace CinemaAPI.Migrations
                     b.Property<string>("Sobremesa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CardapioId");
+                    b.HasKey("BarId");
 
                     b.HasIndex("CinemaId")
                         .IsUnique();
@@ -60,9 +60,6 @@ namespace CinemaAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CardapioId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CinemaNome")
                         .HasColumnType("nvarchar(max)");
@@ -179,7 +176,7 @@ namespace CinemaAPI.Migrations
             modelBuilder.Entity("CinemaAPI.Models.Bar", b =>
                 {
                     b.HasOne("CinemaAPI.Models.Cinema", "Cinema")
-                        .WithOne("Bar")
+                        .WithOne("BarId")
                         .HasForeignKey("CinemaAPI.Models.Bar", "CinemaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -233,7 +230,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Cinema", b =>
                 {
-                    b.Navigation("Bar");
+                    b.Navigation("BarId");
 
                     b.Navigation("Filmes");
 

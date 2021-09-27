@@ -12,47 +12,47 @@ namespace CinemaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CinemaController : ControllerBase
+    public class SalaController : ControllerBase
     {
         private readonly CinemaContexto _context;
 
-        public CinemaController(CinemaContexto context)
+        public SalaController(CinemaContexto context)
         {
             _context = context;
         }
 
-        // GET: api/Cinema
+        // GET: api/Sala
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cinema>>> GetCinema()
+        public async Task<ActionResult<IEnumerable<Sala>>> GetSala()
         {
-            return await _context.Cinema.ToListAsync();
+            return await _context.Sala.ToListAsync();
         }
 
-        // GET: api/Cinema/5
+        // GET: api/Sala/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cinema>> GetCinema(int id)
+        public async Task<ActionResult<Sala>> GetSala(int id)
         {
-            var cinema = await _context.Cinema.FindAsync(id);
+            var sala = await _context.Sala.FindAsync(id);
 
-            if (cinema == null)
+            if (sala == null)
             {
                 return NotFound();
             }
 
-            return cinema;
+            return sala;
         }
 
-        // PUT: api/Cinema/5
+        // PUT: api/Sala/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCinema(int id, Cinema cinema)
+        public async Task<IActionResult> PutSala(int id, Sala sala)
         {
-            if (id != cinema.CinemaId)
+            if (id != sala.SalaId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cinema).State = EntityState.Modified;
+            _context.Entry(sala).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CinemaAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CinemaExists(id))
+                if (!SalaExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CinemaAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Cinema
+        // POST: api/Sala
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Cinema>> PostCinema(Cinema cinema)
+        public async Task<ActionResult<Sala>> PostSala(Sala sala)
         {
-            _context.Cinema.Add(cinema);
+            _context.Sala.Add(sala);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCinema", new { id = cinema.CinemaId }, cinema);
+            return CreatedAtAction("GetSala", new { id = sala.SalaId }, sala);
         }
 
-        // DELETE: api/Cinema/5
+        // DELETE: api/Sala/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCinema(int id)
+        public async Task<IActionResult> DeleteSala(int id)
         {
-            var cinema = await _context.Cinema.FindAsync(id);
-            if (cinema == null)
+            var sala = await _context.Sala.FindAsync(id);
+            if (sala == null)
             {
                 return NotFound();
             }
 
-            _context.Cinema.Remove(cinema);
+            _context.Sala.Remove(sala);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CinemaExists(int id)
+        private bool SalaExists(int id)
         {
-            return _context.Cinema.Any(e => e.CinemaId == id);
+            return _context.Sala.Any(e => e.SalaId == id);
         }
     }
 }

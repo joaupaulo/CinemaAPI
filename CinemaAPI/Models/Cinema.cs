@@ -9,8 +9,7 @@ namespace CinemaAPI.Models
     {
         public int CinemaId { get; set; }
         public string CinemaNome { get; set; }
-        public int CardapioId { get; set; }
-        public Bar Bar { get; set; }
+        public virtual Bar BarId {get; set;}
         public List<Filmes> Filmes { get; set; }
         public List<Ingressos> Ingressos { get; set; }
         public List<Programacao> Programacao { get; set; }

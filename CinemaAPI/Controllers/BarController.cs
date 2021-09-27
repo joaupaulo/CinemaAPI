@@ -47,7 +47,7 @@ namespace CinemaAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBar(int id, Bar bar)
         {
-            if (id != bar.CardapioId)
+            if (id != bar.BarId)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace CinemaAPI.Controllers
             _context.Bar.Add(bar);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBar", new { id = bar.CardapioId }, bar);
+            return CreatedAtAction("GetBar", new { id = bar.BarId }, bar);
         }
 
         // DELETE: api/Bar/5
@@ -102,7 +102,7 @@ namespace CinemaAPI.Controllers
 
         private bool BarExists(int id)
         {
-            return _context.Bar.Any(e => e.CardapioId == id);
+            return _context.Bar.Any(e => e.BarId == id);
         }
     }
 }

@@ -12,47 +12,47 @@ namespace CinemaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProgramacaoController : ControllerBase
+    public class CinemasController : ControllerBase
     {
         private readonly CinemaContexto _context;
 
-        public ProgramacaoController(CinemaContexto context)
+        public CinemasController(CinemaContexto context)
         {
             _context = context;
         }
 
-        // GET: api/Programacao
+        // GET: api/Cinemas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Programacao>>> GetProgramacao()
+        public async Task<ActionResult<IEnumerable<Cinema>>> GetCinema()
         {
-            return await _context.Programacao.ToListAsync();
+            return await _context.Cinema.ToListAsync();
         }
 
-        // GET: api/Programacao/5
+        // GET: api/Cinemas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Programacao>> GetProgramacao(int id)
+        public async Task<ActionResult<Cinema>> GetCinema(int id)
         {
-            var programacao = await _context.Programacao.FindAsync(id);
+            var cinema = await _context.Cinema.FindAsync(id);
 
-            if (programacao == null)
+            if (cinema == null)
             {
                 return NotFound();
             }
 
-            return programacao;
+            return cinema;
         }
 
-        // PUT: api/Programacao/5
+        // PUT: api/Cinemas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProgramacao(int id, Programacao programacao)
+        public async Task<IActionResult> PutCinema(int id, Cinema cinema)
         {
-            if (id != programacao.ProgramacaoId)
+            if (id != cinema.CinemaId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(programacao).State = EntityState.Modified;
+            _context.Entry(cinema).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CinemaAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProgramacaoExists(id))
+                if (!CinemaExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CinemaAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Programacao
+        // POST: api/Cinemas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Programacao>> PostProgramacao(Programacao programacao)
+        public async Task<ActionResult<Cinema>> PostCinema(Cinema cinema)
         {
-            _context.Programacao.Add(programacao);
+            _context.Cinema.Add(cinema);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProgramacao", new { id = programacao.ProgramacaoId }, programacao);
+            return CreatedAtAction("GetCinema", new { id = cinema.CinemaId }, cinema);
         }
 
-        // DELETE: api/Programacao/5
+        // DELETE: api/Cinemas/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProgramacao(int id)
+        public async Task<IActionResult> DeleteCinema(int id)
         {
-            var programacao = await _context.Programacao.FindAsync(id);
-            if (programacao == null)
+            var cinema = await _context.Cinema.FindAsync(id);
+            if (cinema == null)
             {
                 return NotFound();
             }
 
-            _context.Programacao.Remove(programacao);
+            _context.Cinema.Remove(cinema);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ProgramacaoExists(int id)
+        private bool CinemaExists(int id)
         {
-            return _context.Programacao.Any(e => e.ProgramacaoId == id);
+            return _context.Cinema.Any(e => e.CinemaId == id);
         }
     }
 }

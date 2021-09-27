@@ -12,47 +12,47 @@ namespace CinemaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProgramacaoController : ControllerBase
+    public class IngressoController : ControllerBase
     {
         private readonly CinemaContexto _context;
 
-        public ProgramacaoController(CinemaContexto context)
+        public IngressoController(CinemaContexto context)
         {
             _context = context;
         }
 
-        // GET: api/Programacao
+        // GET: api/Ingresso
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Programacao>>> GetProgramacao()
+        public async Task<ActionResult<IEnumerable<Ingressos>>> GetIngressos()
         {
-            return await _context.Programacao.ToListAsync();
+            return await _context.Ingressos.ToListAsync();
         }
 
-        // GET: api/Programacao/5
+        // GET: api/Ingresso/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Programacao>> GetProgramacao(int id)
+        public async Task<ActionResult<Ingressos>> GetIngressos(int id)
         {
-            var programacao = await _context.Programacao.FindAsync(id);
+            var ingressos = await _context.Ingressos.FindAsync(id);
 
-            if (programacao == null)
+            if (ingressos == null)
             {
                 return NotFound();
             }
 
-            return programacao;
+            return ingressos;
         }
 
-        // PUT: api/Programacao/5
+        // PUT: api/Ingresso/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProgramacao(int id, Programacao programacao)
+        public async Task<IActionResult> PutIngressos(int id, Ingressos ingressos)
         {
-            if (id != programacao.ProgramacaoId)
+            if (id != ingressos.IngressoId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(programacao).State = EntityState.Modified;
+            _context.Entry(ingressos).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CinemaAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProgramacaoExists(id))
+                if (!IngressosExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace CinemaAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Programacao
+        // POST: api/Ingresso
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Programacao>> PostProgramacao(Programacao programacao)
+        public async Task<ActionResult<Ingressos>> PostIngressos(Ingressos ingressos)
         {
-            _context.Programacao.Add(programacao);
+            _context.Ingressos.Add(ingressos);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProgramacao", new { id = programacao.ProgramacaoId }, programacao);
+            return CreatedAtAction("GetIngressos", new { id = ingressos.IngressoId }, ingressos);
         }
 
-        // DELETE: api/Programacao/5
+        // DELETE: api/Ingresso/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProgramacao(int id)
+        public async Task<IActionResult> DeleteIngressos(int id)
         {
-            var programacao = await _context.Programacao.FindAsync(id);
-            if (programacao == null)
+            var ingressos = await _context.Ingressos.FindAsync(id);
+            if (ingressos == null)
             {
                 return NotFound();
             }
 
-            _context.Programacao.Remove(programacao);
+            _context.Ingressos.Remove(ingressos);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ProgramacaoExists(int id)
+        private bool IngressosExists(int id)
         {
-            return _context.Programacao.Any(e => e.ProgramacaoId == id);
+            return _context.Ingressos.Any(e => e.IngressoId == id);
         }
     }
 }

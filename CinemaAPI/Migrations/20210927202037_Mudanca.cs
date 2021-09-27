@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CinemaAPI.Migrations
 {
-    public partial class Att : Migration
+    public partial class Mudanca : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,7 @@ namespace CinemaAPI.Migrations
                 {
                     CinemaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CinemaNome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardapioId = table.Column<int>(type: "int", nullable: false)
+                    CinemaNome = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,7 +24,7 @@ namespace CinemaAPI.Migrations
                 name: "Bar",
                 columns: table => new
                 {
-                    CardapioId = table.Column<int>(type: "int", nullable: false)
+                    BarId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Comida = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Bebida = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -36,7 +35,7 @@ namespace CinemaAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bar", x => x.CardapioId);
+                    table.PrimaryKey("PK_Bar", x => x.BarId);
                     table.ForeignKey(
                         name: "FK_Bar_Cinema_CinemaId",
                         column: x => x.CinemaId,

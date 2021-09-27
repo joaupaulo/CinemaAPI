@@ -9,7 +9,7 @@ namespace CinemaAPI.Models
     public class Bar
     {
         [Key]
-        public int CardapioId { get; set; }
+        public int BarId { get; set; }
         public string Comida { get; set; }
         public string Bebida { get; set; }
         public string Combo { get; set; }
