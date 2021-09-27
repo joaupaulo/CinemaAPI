@@ -7,5 +7,9 @@ namespace CinemaAPI.Models
 {
     public class Programacao
     {
+       public int ProgramacaoId { get; set; }
+       public DateTime DataLancamento { get; set; }
+       public DateTime FilmeHoje { get; set; }
+       public DateTime FilmeSemana { get; set; }
     }
 }

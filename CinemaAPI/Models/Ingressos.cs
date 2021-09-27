@@ -5,7 +5,15 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Models
 {
-    public class Ingresso
+    public class Ingressos
     {
+        public int IngressoId { get; set; }
+        public int ValorIntegral { get; set; }
+        public int ValorMeia { get; set; }
+
+
+
+
+
     }
 }

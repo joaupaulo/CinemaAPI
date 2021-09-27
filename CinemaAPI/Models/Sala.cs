@@ -7,5 +7,8 @@ namespace CinemaAPI.Models
 {
     public class Sala
     {
+        public int SalaId { get; set; }
+        public string Lado { get; set; }
+        public int NumeroPoltrona { get; set; }
     }
 }
