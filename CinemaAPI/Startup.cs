@@ -1,7 +1,9 @@
+using CinemaAPI.Contexto;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +29,7 @@ namespace CinemaAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<CinemaContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Padrao")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

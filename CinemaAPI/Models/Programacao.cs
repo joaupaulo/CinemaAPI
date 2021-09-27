@@ -11,5 +11,8 @@ namespace CinemaAPI.Models
        public DateTime DataLancamento { get; set; }
        public DateTime FilmeHoje { get; set; }
        public DateTime FilmeSemana { get; set; }
+       public int CinemaId { get; set; }
+       public Cinema Cinema { get; set; }
+
     }
 }

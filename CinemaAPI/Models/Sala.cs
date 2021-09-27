@@ -10,5 +10,7 @@ namespace CinemaAPI.Models
         public int SalaId { get; set; }
         public string Lado { get; set; }
         public int NumeroPoltrona { get; set; }
+        public int CinemaId { get; set; }
+        public Cinema Cinema { get; set; }
     }
 }
