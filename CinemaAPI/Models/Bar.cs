@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Models
 {
-    public class Bar
+    public class Bar : BaseEnity
     {
-        [Key]
-        public int BarId { get; set; }
         public string Comida { get; set; }
         public string Bebida { get; set; }
         public string Combo { get; set; }

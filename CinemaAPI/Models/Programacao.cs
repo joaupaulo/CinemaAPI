@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Models
 {
-    public class Programacao
+    public class Programacao : BaseEnity
     {
-       public int ProgramacaoId { get; set; }
+       
        public DateTime DataLancamento { get; set; }
        public DateTime FilmeHoje { get; set; }
        public DateTime FilmeSemana { get; set; }

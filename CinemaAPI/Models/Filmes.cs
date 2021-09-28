@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Models
 {
-    public class Filmes
+    public class Filmes : BaseEnity
     {
-        [Key]
-        public int FilmeId { get; set; }
+   
         public string Nome { get; set; }
         public string Atores { get; set; }
         public string Duracao { get; set; }
