@@ -1,4 +1,5 @@
 ﻿using CinemaAPI.Contexto;
+using CinemaAPI.Models;
 using CinemaAPI.Servicos.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,44 +9,93 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Servicos.Repositorio
 {
-    public class BaseRepositorio<T> : IBaseRepository<T> where T : class
+    public class BaseRepositorio<T> : IBaseRepository<T> where T : BaseEnity
     {
 
-        private readonly CinemaContexto _CinemaContextos;
-
+        protected readonly CinemaContexto _CinemaContextos;
+        private DbSet<T> Tabelas;
        
         public BaseRepositorio(CinemaContexto CinemaContexto)
         {
-            _CinemaContextos = CinemaContexto;
+            this._CinemaContextos = CinemaContexto;
+            Tabelas = _CinemaContextos.Set<T>();
         }
 
-
-        public void Atualizar(T obj)
+        public T Atualizar(T item)
         {
-            if (obj == null) throw new ArgumentNullException("Valor nulo");
+            var UpdateItem = Tabelas.Where(x => x.Id == item.Id).FirstOrDefault();
 
-        
+            if(UpdateItem != null)
+            {
+                try
+                {
+                    Tabelas.Add(item);
+                    _CinemaContextos.SaveChanges();
+                }
+
+                catch (Exception)
+                {
+                    throw new ArgumentNullException("Item nulo");
+                }
+
+            } else
+            {
+                return null;
+
+            }
+
+            return item;
+        }
+
+        public void Delete(int id)
+        {
+            var DeleteItem = Tabelas.Where(x => x.Id == id).FirstOrDefault();
+
+            if(DeleteItem != null)
+            {
+
+                try
+                {
+                    Tabelas.Remove(DeleteItem);
+                    _CinemaContextos.SaveChanges();
+                }
+
+                catch (Exception)
+                {
+                    throw new ArgumentNullException("Item nulo");
+                }
+
+
+            }
 
         }
 
-        public void Delete(T Id)
+        public T Inserir(T item)
         {
-            throw new NotImplementedException();
+           try
+            {
+              Tabelas.Add(item);
+              _CinemaContextos.SaveChanges();
+            } 
+            
+            catch(Exception)
+            {
+                throw new ArgumentNullException("Item nulo");
+            }
+
+            return item;
         }
 
-        public void Inserir(T obj)
+        public T PegarItem(int id)
         {
-            throw new NotImplementedException();
-        }
+            var PegarItem = Tabelas.Where(x => x.Id == id).FirstOrDefault();
 
-        public T PegarItem(T Id)
-        {
-            throw new NotImplementedException();
+            return PegarItem;
         }
 
         public IEnumerable<T> PegarTodos()
         {
-            throw new NotImplementedException();
+            return Tabelas.ToList();
         }
     }
 }
