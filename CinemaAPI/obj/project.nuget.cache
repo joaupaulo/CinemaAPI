@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SMHhJyZs9t58KzvbSkjo9jZv57+BmVwXtfUu+ExCJfspDWKYD6rYg6Fm0N5668ziwQaRdhgzYCtdvgalUmDnzg==",
+  "dgSpecHash": "+5UcZQb7vfiLyKNXMVy5E+t2JrBfiPy3j2DVfDF4L6GCtFpxEUHnPolk9KMDRUGfDAulO6BiSKBBoBs6nBIJ9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Paulo\\source\\repos\\CinemaAPI\\CinemaAPI\\CinemaAPI.csproj",
   "expectedPackageFiles": [
@@ -56,7 +56,10 @@
     "C:\\Users\\Paulo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Paulo\\.nuget\\packages\\npoi\\2.5.4\\npoi.2.5.4.nupkg.sha512",
+    "C:\\Users\\Paulo\\.nuget\\packages\\portable.bouncycastle\\1.8.6\\portable.bouncycastle.1.8.6.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\Paulo\\.nuget\\packages\\sharpziplib\\1.3.1\\sharpziplib.1.3.1.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.2\\swashbuckle.aspnetcore.6.2.2.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.2\\swashbuckle.aspnetcore.swagger.6.2.2.nupkg.sha512",
     "C:\\Users\\Paulo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.2\\swashbuckle.aspnetcore.swaggergen.6.2.2.nupkg.sha512",
