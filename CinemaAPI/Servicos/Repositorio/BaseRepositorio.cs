@@ -1,4 +1,6 @@
-﻿using CinemaAPI.Servicos.Interfaces;
+﻿using CinemaAPI.Contexto;
+using CinemaAPI.Servicos.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,18 @@ namespace CinemaAPI.Servicos.Repositorio
 {
     public class BaseRepositorio<T> : IBaseRepository<T> where T : class
     {
+
+        private readonly CinemaContexto _CinemaContextos;
+
+        private DbSet<T>  Tabelas;
+
+        public BaseRepositorio(CinemaContexto CinemaContexto)
+        {
+            this._CinemaContextos = CinemaContexto;
+            Tabelas = CinemaContexto.Set<T>();
+        }
+
+
         public void Atualizar(T obj)
         {
             throw new NotImplementedException();
