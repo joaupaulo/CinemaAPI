@@ -13,21 +13,22 @@ namespace CinemaAPI.Servicos.Repositorio
 
         private readonly CinemaContexto _CinemaContextos;
 
-        private DbSet<T>  Tabelas;
-
+       
         public BaseRepositorio(CinemaContexto CinemaContexto)
         {
-            this._CinemaContextos = CinemaContexto;
-            Tabelas = CinemaContexto.Set<T>();
+            _CinemaContextos = CinemaContexto;
         }
 
 
         public void Atualizar(T obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) throw new ArgumentNullException("Valor nulo");
+
+        
+
         }
 
-        public void Delete(object Id)
+        public void Delete(T Id)
         {
             throw new NotImplementedException();
         }
