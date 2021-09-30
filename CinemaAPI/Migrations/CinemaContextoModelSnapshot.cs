@@ -21,7 +21,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Bar", b =>
                 {
-                    b.Property<int>("BarId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -44,7 +44,7 @@ namespace CinemaAPI.Migrations
                     b.Property<string>("Sobremesa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BarId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CinemaId")
                         .IsUnique();
@@ -69,7 +69,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Filmes", b =>
                 {
-                    b.Property<int>("FilmeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -92,7 +92,7 @@ namespace CinemaAPI.Migrations
                     b.Property<string>("Sinopse")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("FilmeId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
 
@@ -101,7 +101,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Ingressos", b =>
                 {
-                    b.Property<int>("IngressoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -115,7 +115,7 @@ namespace CinemaAPI.Migrations
                     b.Property<int>("ValorMeia")
                         .HasColumnType("int");
 
-                    b.HasKey("IngressoId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
 
@@ -124,7 +124,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Programacao", b =>
                 {
-                    b.Property<int>("ProgramacaoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -141,7 +141,7 @@ namespace CinemaAPI.Migrations
                     b.Property<DateTime>("FilmeSemana")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ProgramacaoId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
 
@@ -150,7 +150,7 @@ namespace CinemaAPI.Migrations
 
             modelBuilder.Entity("CinemaAPI.Models.Sala", b =>
                 {
-                    b.Property<int>("SalaId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -164,7 +164,7 @@ namespace CinemaAPI.Migrations
                     b.Property<int>("NumeroPoltrona")
                         .HasColumnType("int");
 
-                    b.HasKey("SalaId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
 

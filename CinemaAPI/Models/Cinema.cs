@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace CinemaAPI.Models
 {
-    public class Cinema : BaseEnity
+    public class Cinema 
     {
+
+        public int CinemaId { get; set; }
         public string CinemaNome { get; set; }
-      
+        public virtual Bar BarId {get; set;}
         public List<Filmes> Filmes { get; set; }
         public List<Ingressos> Ingressos { get; set; }
         public List<Programacao> Programacao { get; set; }
