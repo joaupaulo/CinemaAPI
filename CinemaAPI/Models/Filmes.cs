@@ -14,8 +14,7 @@ namespace CinemaAPI.Models
         public string Duracao { get; set; }
         public string Sinopse { get; set; }
         public int Avaliacao { get; set; }
-        public int CinemaId { get; set; }
-        public Cinema Cinema { get; set; }
+ 
 
 
 
