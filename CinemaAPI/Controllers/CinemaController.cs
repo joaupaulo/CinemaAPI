@@ -34,6 +34,7 @@ namespace CinemaAPI.Controllers
         {
             var cinema = await _context.Cinema.FindAsync(id);
 
+
             if (cinema == null)
             {
                 return NotFound();
